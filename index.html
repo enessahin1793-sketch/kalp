@@ -1,104 +1,93 @@
-!DOCTYPE html
-html lang=tr
-head
-meta charset=UTF-8
-meta name=viewport content=width=device-width, initial-scale=1.0
-titleKalbimi Bul 💖title
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalbimi Bul 💖</title>
 
-style
+<style>
   body {
-    margin 0;
-    height 100vh;
-    background linear-gradient(135deg, #ff9a9e, #fad0c4);
-    display flex;
-    align-items center;
-    justify-content center;
-    font-family Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
   }
-
   .game {
-    background white;
-    padding 30px;
-    border-radius 20px;
-    text-align center;
-    box-shadow 0 10px 25px rgba(0,0,0,0.2);
-    max-width 90vw;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    max-width: 90vw;
   }
-
-  h1 {
-    margin-bottom 20px;
-  }
-
   .cards {
-    display grid;
-    grid-template-columns repeat(3, 80px);
-    gap 15px;
-    justify-content center;
-    margin-top 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
   }
-
   .card {
-    width 80px;
-    height 80px;
-    background #ffdde1;
-    border-radius 16px;
-    display flex;
-    align-items center;
-    justify-content center;
-    font-size 32px;
-    cursor pointer;
-    transition transform 0.2s;
+    width: 80px;
+    height: 80px;
+    background: #ffdde1;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    cursor: pointer;
+    transition: transform 0.2s;
   }
-
-  .cardhover {
-    transform scale(1.1);
+  .card:hover {
+    transform: scale(1.1);
   }
-
   .message {
-    margin-top 25px;
-    font-size 20px;
-    display none;
+    margin-top: 25px;
+    font-size: 20px;
+    display: none;
   }
-style
-head
+</style>
+</head>
 
-body
+<body>
 
-div class=game
-  h1Kalbimi bulabilir misin 💕h1
-  pBir tanesinde sana ait bir şey var 😌p
+<div class="game">
+  <h1>Kalbimi bulabilir misin? 💕</h1>
+  <p>Bir tanesinde sana ait bir şey var 😌</p>
+  <div class="cards" id="cards"></div>
+  <div class="message" id="message"></div>
+</div>
 
-  div class=cards id=cardsdiv
-
-  div class=message id=messagediv
-div
-
-script
-  const cardsDiv = document.getElementById(cards);
-  const message = document.getElementById(message);
+<script>
+  const cardsDiv = document.getElementById("cards");
+  const message = document.getElementById("message");
 
   const totalCards = 6;
-  const heartIndex = Math.floor(Math.random()  totalCards);
+  const heartIndex = Math.floor(Math.random() * totalCards);
 
-  for (let i = 0; i  totalCards; i++) {
-    const card = document.createElement(div);
-    card.className = card;
-    card.innerText = ❓;
+  for (let i = 0; i < totalCards; i++) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerText = "❓";
 
-    card.addEventListener(click, () = {
+    card.addEventListener("click", () => {
       if (i === heartIndex) {
-        card.innerText = 💖;
-        message.style.display = block;
-        message.innerHTML = Buldun 💕brKalbim zaten sendeydi 😘;
+        card.innerText = "💖";
+        message.style.display = "block";
+        message.innerHTML = "Buldun 💕<br>Kalbim zaten sendeydi 😘";
       } else {
-        card.innerText = 😐;
-        card.style.pointerEvents = none;
+        card.innerText = "😐";
+        card.style.pointerEvents = "none";
       }
     });
 
     cardsDiv.appendChild(card);
   }
-script
+</script>
 
-body
-html
+</body>
+</html>
